@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>INCOFER – Panel de Rutas y Trenes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Hero con imagen sobrepuesta */
+    .hero {
+      background-image: url('https://www.incofer.go.cr/wp-content/uploads/2023/07/incofer.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.45);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+  <!-- Encabezado con logo -->
+  <header class="bg-green-700 text-white shadow-md">
+    <div class="max-w-6xl mx-auto flex items-center gap-4 p-4">
+      <img src="https://www.incofer.go.cr/wp-content/uploads/2023/02/logo-incofer.png" alt="Logo INCOFER" class="h-12 w-auto" />
+      <h1 class="text-3xl font-bold tracking-wide">INCOFER – Estado en Tiempo Real</h1>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero h-64 flex items-center justify-center text-center text-white">
+    <h2 class="relative z-10 text-4xl md:text-5xl font-extrabold">¡Viajá en tren por Costa Rica!</h2>
+  </section>
+
+  <!-- Contenido principal -->
+  <main class="max-w-6xl mx-auto px-4 py-10 space-y-16">
+
+    <!-- SOBRE INCOFER -->
+    <section id="sobre" class="space-y-4">
+      <h2 class="text-2xl font-semibold">Sobre el INCOFER</h2>
+      <p>
+        El <strong>Instituto Costarricense de Ferrocarriles (INCOFER)</strong> es la entidad estatal encargada
+        de operar, mantener y modernizar la red ferroviaria del país.  Actualmente ofrece
+        servicio de trenes de pasajeros en la Gran Área Metropolitana (GAM) mediante tres
+        rutas principales y desarrolla proyectos estratégicos como el <em>Tren Eléctrico GAM</em>.
+      </p>
+    </section>
+
+    <!-- RUTAS ACTUALES -->
+    <section id="rutas" class="space-y-6">
+      <h2 class="text-2xl font-semibold">Rutas Actuales</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Card Ruta -->
+        <div class="bg-white rounded-2xl shadow p-6 flex flex-col gap-2">
+          <h3 class="text-lg font-bold">Curridabat – Pavas – Belén</h3>
+          <p class="text-sm">Conecta el Este y Oeste de la GAM pasando por San José, ideal para estudiantes y trabajadores.</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow p-6 flex flex-col gap-2">
+          <h3 class="text-lg font-bold">San José – Cartago</h3>
+          <p class="text-sm">Une la capital con la ciudad de Cartago, atravesando barrios como Tres Ríos y La Lima.</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow p-6 flex flex-col gap-2">
+          <h3 class="text-lg font-bold">San José – Heredia – Alajuela</h3>
+          <p class="text-sm">Ruta norte que enlaza San José con Heredia y Alajuela, facilitando la movilidad interurbana.</p>
+        </div>
+      </div>
+      <p class="text-xs text-slate-500">*Información oficial de rutas de pasajeros de INCOFER.</p>
+    </section>
+
+    <!-- PANTALLA EN TIEMPO REAL -->
+    <section id="panel" class="space-y-6">
+      <h2 class="text-2xl font-semibold">Estado en Tiempo Real</h2>
+      <!-- Rutas -->
+      <div>
+        <h3 class="font-medium mb-2">Condición de las Rutas</h3>
+        <div class="overflow-x-auto">
+          <table id="routesTable" class="min-w-full text-left text-sm">
+            <thead class="bg-slate-200 uppercase tracking-wider">
+              <tr>
+                <th class="px-4 py-2">Ruta</th>
+                <th class="px-4 py-2">Estado</th>
+                <th class="px-4 py-2">Última actualización</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Horarios -->
+      <div>
+        <h3 class="font-medium mb-2">Horarios de Trenes</h3>
+        <div class="overflow-x-auto">
+          <table id="scheduleTable" class="min-w-full text-left text-sm">
+            <thead class="bg-slate-200 uppercase tracking-wider">
+              <tr>
+                <th class="px-4 py-2">Ruta</th>
+                <th class="px-4 py-2">Tren</th>
+                <th class="px-4 py-2">Salida</th>
+                <th class="px-4 py-2">Llegada</th>
+                <th class="px-4 py-2">Estado</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="bg-slate-100 text-center text-xs text-slate-500 py-6">
+    Información tomada con fines académicos. Logos e imágenes son propiedad de INCOFER. © <span id="year"></span>.
+  </footer>
+
+  <script src="dashboards.js"></script>
+</body>
+</html>
